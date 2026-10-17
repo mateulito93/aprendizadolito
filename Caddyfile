@@ -1,0 +1,11 @@
+# Substitua 'seu-dominio.com' pelo seu domínio ou IP da VM
+seu-dominio.com {
+    # Redireciona todas as requisições para o container do Django
+    reverse_proxy web:8000
+
+    # Otimização para arquivos estáticos do Django (opcional)
+    handle_path /static/* {
+        root * /app/staticfiles
+        file_server
+    }
+}
